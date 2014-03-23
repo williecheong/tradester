@@ -2,19 +2,38 @@
 
 /*
 |--------------------------------------------------------------------------
-| Tradester Keys and Secrets
+| Tradester Configuration for the trader
 |--------------------------------------------------------------------------
 */
 
-define('OANDA_API_KEY',     'oandala');
+define('USER_EMAIL_ADDRESS',            '');
+define('USER_RECEIVES_EMAILS',          TRUE);
+define('USER_TRADING_ENVIRONMENT',      'sandbox');
 
 /*
 |--------------------------------------------------------------------------
-| Tradester Configuration Defaults
+| Tradester Configuration for OANDA
+|       http://developer.oanda.com/docs/
 |--------------------------------------------------------------------------
 */
 
-define('RECEIVE_EMAILS',     TRUE);
+
+if ( USER_TRADING_ENVIRONMENT === 'live' ) {
+    define('OANDA_ACCESS_TOKEN',    '12345678900987654321-abc34135acde13f13530');
+    define('OANDA_API_URL',         'https://api-fxtrade.oanda.com');
+    define('OANDA_ACCOUNT_ID',      '');
+
+} else if ( USER_TRADING_ENVIRONMENT === 'practice' ) {
+    define('OANDA_ACCESS_TOKEN',    '12345678900987654321-abc34135acde13f13530');
+    define('OANDA_API_URL',         'https://api-fxpractice.oanda.com');
+    define('OANDA_ACCOUNT_ID',      '');
+    
+} else {
+    define('OANDA_ACCESS_TOKEN',    '12345678900987654321-abc34135acde13f13530');
+    define('OANDA_API_URL',         'http://api-sandbox.oanda.com');
+    define('OANDA_ACCOUNT_ID',      '');
+
+}
 
 
 /*
