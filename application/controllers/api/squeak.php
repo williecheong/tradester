@@ -19,7 +19,7 @@ class Squeak extends REST_Controller {
         echo "<br>";
         echo OANDA_API_URL;
         echo "<br>";
-        echo var_dump( oanda_get_current_prices( array('EUR_USD') ) );
+        var_dump( oanda_get_instrument_history('EUR_USD', 'S15') );
         return;
     }
 }
